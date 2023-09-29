@@ -31,7 +31,7 @@
         <ul v-else>
           <li v-for="(item,index) in toDo">
             <span>{{this.toDo[index].text}}</span>
-            <i class="fa-regular fa-rectangle-xmark"></i>
+            <i @click="toDo.splice(index,1)" class="fa-regular fa-rectangle-xmark"></i>
           </li>
 
         </ul>
