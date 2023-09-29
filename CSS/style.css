@@ -2,3 +2,33 @@
 body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+.background-general{
+  background-image: url('/img/background.jpg');
+  height: 100vh;
+}
+
+.container#app h1{
+  color: white;
+  padding: 40px 0;
+  font-size: 3.3rem;
+  font-weight: 900;
+}
+
+ul{
+  list-style: none;
+  padding: 0 ;
+  
+}
+
+ul li{
+  padding: 20px 0 5px 0;
+  border-bottom: 2px solid lightgrey;
+}
+
+ul i{
+  float: right;
+  font-size: 1.5rem;
+  color: red;
+  cursor: pointer;
+}
