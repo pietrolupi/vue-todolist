@@ -8,12 +8,14 @@ body{
   height: 100vh;
 }
 
-.container#app h1{
+.container#app>h1{
   color: white;
   padding: 40px 0;
   font-size: 3.3rem;
   font-weight: 900;
 }
+
+
 
 ul{
   list-style: none;
