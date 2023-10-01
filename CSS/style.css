@@ -11,7 +11,8 @@ body{
 
 
 .custom-card,
-.form-custom{
+.form-custom
+ {
   background-image: url('/img/paperbackground.jpg');
 }
 
@@ -69,7 +70,6 @@ li span{
 .error-message{
   color: rgb(249, 1, 1);
   font-weight: 900;
-  
   height: 80px;
   display: flex;
   justify-content: center;
@@ -80,6 +80,10 @@ li span{
   background-color: rgba(18, 17, 17, 0.814);
   padding: 10px;
   border-radius: 10px;
+  text-shadow: -1px 1px 0 #000,
+                          1px 1px 0 #000,
+                         1px -1px 0 #000,
+                        -1px -1px 0 #000;
 }
 
 
@@ -92,6 +96,51 @@ li span{
   text-align: center;
   font-size: 4rem;
   font-weight: 900;
+  text-shadow: -1px 1px 0 #000,
+                          1px 1px 0 #000,
+                         1px -1px 0 #000,
+                        -1px -1px 0 #000;
+}
+
+.chrono-btn{
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+.red{
+  color: red;
+}
+
+.overtime-msg{
+  margin-left: 250px;
+  padding: 5px 10px;
+  border-radius: 25px;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  width: 180px;
+  border: 1px solid black;
+  color: white;
+  text-shadow: -1px 1px 0 #000,
+                          1px 1px 0 #000,
+                         1px -1px 0 #000,
+                        -1px -1px 0 #000;
+}
+
+
+.completed-msg{
+  margin-left: 250px;
+  padding: 5px 10px;
+  border-radius: 25px;
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  width: 180px;
+  border: 1px solid black;
+  color: white;
   text-shadow: -1px 1px 0 #000,
                           1px 1px 0 #000,
                          1px -1px 0 #000,

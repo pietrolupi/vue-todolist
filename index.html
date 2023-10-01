@@ -21,23 +21,74 @@
   <div class="background-general">
     <div class="container pt-5" id="app">
       <h1>TO-DO LIST</h1>
+
       <div class="d-flex justify-content-center ">  
         <input @keyup.enter="addList(textInsert)" v-model="textInsert" class="form-control form-control-lg form-custom w-25 me-5" type="text" placeholder="Add new task...">
-        <button  @click="addList(textInsert)" class="btn btn-custom">Add task</button>
+       
+
+        <select v-model="selectedTime" class="form-select w-25 custom-select" aria-label="Default select example">
+          <option selected>Select the available time:</option>
+          <option value="2">2 sec</option>
+          <option value="5">5 sec</option>
+          <option value="15">15 sec</option>
+        </select>
+        
+
+        <button  @click="addList(textInsert); selectTime()" class="btn btn-custom ms-3">Add task</button>
+      </div>
+
+      <div class="time-setting">
+       
         
       </div>
+
+
       <div class="error-message text-center">
         
         <h3 v-if=" this.lengthControl" >ERROR: insert at least 5 characters to create a task.</h3>
+        <h3 v-else-if=" this.optionControl" >ERROR: select a time limit to create a task.</h3>
       </div>
-      <div class="card custom-card m-auto p-3" style="width: 60%;">
+
+      <div class="card custom-card m-auto p-3" style="width: 80%;">
         <h1  v-if="toDo.length === 0" class="text-center">Add some tasks sleepyhead! &#128564;</h1>
         <ul v-else>
-          <li v-for="(item,index) in toDo">
-            <span @click="completeTask(index)" :class="{'completed' : this.toDo[index].done === true}" 
-            >{{this.toDo[index].text}}</span>
-            <i @click="removeTask(index)" class="fa-regular fa-rectangle-xmark"></i>
-            <i @click="completeTask(index)" class="fa-regular fa-square-check me-2"></i>
+          <li v-for="(item,index) in toDo" class="d-flex flex-wrap">
+           
+            <div class="w-100">
+
+              <span @click="completeTask(index)" 
+              :class="{'completed' : this.toDo[index].done === true}"
+              
+              >{{this.toDo[index].text}}</span>
+              
+              <i @click="removeTask(index)" class="fa-regular fa-rectangle-xmark"></i>
+              <i @click="completeTask(index); pauseChrono(index)" class="fa-regular fa-square-check me-2"></i>
+            </div>
+
+            <div class="time d-inline-block mt-2 w-100 d-flex justify-content-between">
+
+              <!-- CRONOMETROOOOOOOOOOOOOOOOOOO -->
+              <button v-if="!clockList[index].isStarted"  @click="startChrono(index)"  class=" chrono-btn btn btn-success me-3 "><i class="fa-solid fa-play"></i></button>
+              <button v-else @click="pauseChrono(index)" class="chrono-btn btn btn-warning me-3"><i class="fa-solid fa-pause"></i></button>
+              <button @click="resetChrono(index)" class="chrono-btn btn btn-danger me-3"><i class="fa-solid fa-ban"></i></button>
+              
+              <span
+              :class="{'red' : this.overtimeList[index].overtime}"
+              >{{clockList[index].minuti.toString().padStart(2, '0')}}:{{clockList[index].secondi.toString().padStart(2, '0')}}</span>
+
+
+              <div v-if="this.overtimeList[index].overtime" class="overtime-msg">
+                <span>&#128128;</span> <span>OVERTIME</span> <span>&#128128;</span>  </div>
+
+              <div v-else-if="this.overtimeList[index].done" class="completed-msg"><span>&#127942;</span> <span>DONE</span> <span>&#127942;</span>  </div>
+
+              
+              <span
+              :class="{'red' : this.overtimeList[index].overtime}"
+              class="ms-auto">&#9200; Time-limit: {{timeList[index]}}sec</span>
+              <!-- CRONOMETROOOOOOOOOOOOOOOOOOO -->
+            </div>
+
           </li>
 
         </ul>
