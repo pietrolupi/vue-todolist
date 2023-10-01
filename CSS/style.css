@@ -34,3 +34,29 @@ ul i{
   color: red;
   cursor: pointer;
 }
+
+.completed{
+  color: green;
+  text-decoration: line-through;
+}
+
+li span{
+  cursor: pointer;
+  font-weight: 600;font-size: 1.2rem;
+}
+
+.error-message{
+  color: rgb(249, 1, 1);
+  font-weight: 900;
+  
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-message h3 {
+  background-color: rgba(18, 17, 17, 0.814);
+  padding: 10px;
+  border-radius: 10px;
+}
