@@ -17,26 +17,27 @@
   <title>Document</title>
 </head>
 <body>
+  
   <div class="background-general">
-    <div class="container " id="app">
-      <h1 class="text-center">TO-DO LIST</h1>
-
+    <div class="container pt-5" id="app">
+      <h1>TO-DO LIST</h1>
       <div class="d-flex justify-content-center ">  
-        <input @keyup.enter="addList(textInsert)" v-model="textInsert" class="form-control form-control-lg w-25 me-5" type="text" placeholder="Add new task...">
-        <button  @click="addList(textInsert)" class="btn btn-primary">Add task</button>
+        <input @keyup.enter="addList(textInsert)" v-model="textInsert" class="form-control form-control-lg form-custom w-25 me-5" type="text" placeholder="Add new task...">
+        <button  @click="addList(textInsert)" class="btn btn-custom">Add task</button>
         
       </div>
       <div class="error-message text-center">
         
-        <h3 v-if=" this.lengthControl" >ERRORE: digita almeno 5 caratteri.</h3>
+        <h3 v-if=" this.lengthControl" >ERROR: insert at least 5 characters to create a task.</h3>
       </div>
-      <div class="card m-auto p-3" style="width: 60%;">
-        <h1  v-if="toDo.length === 0">Add some tasks sleepyhead! &#128564;</h1>
+      <div class="card custom-card m-auto p-3" style="width: 60%;">
+        <h1  v-if="toDo.length === 0" class="text-center">Add some tasks sleepyhead! &#128564;</h1>
         <ul v-else>
           <li v-for="(item,index) in toDo">
             <span @click="completeTask(index)" :class="{'completed' : this.toDo[index].done === true}" 
             >{{this.toDo[index].text}}</span>
             <i @click="removeTask(index)" class="fa-regular fa-rectangle-xmark"></i>
+            <i @click="completeTask(index)" class="fa-regular fa-square-check me-2"></i>
           </li>
 
         </ul>

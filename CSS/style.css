@@ -8,14 +8,28 @@ body{
   height: 100vh;
 }
 
-.container#app>h1{
-  color: white;
-  padding: 40px 0;
-  font-size: 3.3rem;
-  font-weight: 900;
+
+
+.custom-card,
+.form-custom{
+  background-image: url('/img/paperbackground.jpg');
 }
 
+.btn-custom{
+  color: white;
+  background-image: url('/img/btnbackground.jpg');
+  border: 1px solid white;
+  text-shadow: -1px 1px 0 #000,
+  1px 1px 0 #000,
+ 1px -1px 0 #000,
+-1px -1px 0 #000;
+}
 
+.btn-custom:hover{
+  color: cornsilk;
+  border-color: cornsilk;
+  opacity: 0.9;
+}
 
 ul{
   list-style: none;
@@ -28,10 +42,17 @@ ul li{
   border-bottom: 2px solid lightgrey;
 }
 
-ul i{
+ul .fa-rectangle-xmark{
   float: right;
   font-size: 1.5rem;
-  color: red;
+  color: rgb(176, 5, 5);
+  cursor: pointer;
+}
+
+ul .fa-square-check{
+  float: right;
+  font-size: 1.5rem;
+  color: rgb(0, 102, 0);
   cursor: pointer;
 }
 
@@ -59,4 +80,20 @@ li span{
   background-color: rgba(18, 17, 17, 0.814);
   padding: 10px;
   border-radius: 10px;
+}
+
+
+
+
+ .container>h1{
+  margin-bottom: 40px;
+  
+  color: white;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 900;
+  text-shadow: -1px 1px 0 #000,
+                          1px 1px 0 #000,
+                         1px -1px 0 #000,
+                        -1px -1px 0 #000;
 }
