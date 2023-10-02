@@ -135,6 +135,6 @@ createApp({
   },
 
   mounted(){
-   
+   alert('NOTA: il lavoro è impostato in SECONDI solo per osservarne le funzionalità, ovviamente è da intendersi in minuti/ore')
   }
 }).mount('#app')

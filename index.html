@@ -45,8 +45,8 @@
 
       <div class="error-message text-center">
         
-        <h3 v-if=" this.lengthControl" >ERROR: insert at least 5 characters to create a task.</h3>
-        <h3 v-else-if=" this.optionControl" >ERROR: select a time limit to create a task.</h3>
+        <h3 v-if=" this.lengthControl" >⚠️ ERROR: insert at least 5 characters to create a task. ⚠️</h3>
+        <h3 v-else-if=" this.optionControl" >⚠️ ERROR: select a time limit to create a task. ⚠️</h3>
       </div>
 
       <div class="card custom-card m-auto p-3" style="width: 80%;">
@@ -56,7 +56,7 @@
            
             <div class="w-100">
 
-              <span @click="completeTask(index)" 
+              <span @click="completeTask(index); pauseChrono(index)" 
               :class="{'completed' : this.toDo[index].done === true}"
               
               >{{this.toDo[index].text}}</span>
